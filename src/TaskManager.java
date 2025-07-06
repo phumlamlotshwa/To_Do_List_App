@@ -25,6 +25,14 @@ public class TaskManager {
             }
         }
     }
+    public void markTaskAsDone(int index){
+        if (index >= 0 && index < tasks.size()) {
+            tasks.get(index).markAsDone();
+            saveTasks();    
+        }else{
+            System.out.println("invalid task number.");
+        }
+    }
 
 
 
