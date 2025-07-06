@@ -14,7 +14,18 @@ public class TaskManager {
         tasks.add(new Task(description));
         saveTasks();
     }
-    
+
+    public void listTasks(){
+        if (tasks.isEmpty()) {
+            System.out.println("no tasks found. ");
+        
+        }else{
+            for (int i = 0; i < tasks.size(); i++){
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
+        }
+    }
+
 
 
 }
