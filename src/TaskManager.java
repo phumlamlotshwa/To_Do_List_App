@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class TaskManager {
@@ -41,6 +44,18 @@ public class TaskManager {
             
         }else{
             System.out.println("invalid task number");
+        }
+    }
+
+    private void saveTasks(){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))){
+            for(Task task : tasks){
+                writer.write(task.toFileString());
+                writer.newLine();
+            }
+            
+        }catch (IOException e){
+            System.out.println("Error saving tasks: " + e.getMessage());
         }
     }
 
