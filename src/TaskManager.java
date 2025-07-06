@@ -10,6 +10,11 @@ public class TaskManager {
         loadTasks();
 
     }
+    public void addTask(String description){
+        tasks.add(new Task(description));
+        saveTasks();
+    }
     
+
 
 }
