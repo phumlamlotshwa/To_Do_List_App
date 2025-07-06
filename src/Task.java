@@ -1,8 +1,7 @@
-import java.nio.file.FileAlreadyExistsException;
 
 public class Task {
     private String description;
-    private String isDone;
+    private boolean isDone;
 
     public Task(String description){
         this.description = description;
@@ -23,7 +22,7 @@ public class Task {
 
     @Override
     public String toString(){
-        return (isDone ? "[✔️} " : "[ ]") + description;
+        return (isDone ? "[✔️] " : "[ ]") + description;
     }
 
     public String toFileString(){
@@ -32,7 +31,7 @@ public class Task {
 
     public static Task fromFileString(String line){
         String[] parts = line.split(";", 2);
-        Task task = new Task(parts[1]);
+        Task task = new Task(parts[1]); 
         if(Boolean.parseBoolean(parts[0])){
             task.markAsDone();;
         }
