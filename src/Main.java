@@ -27,6 +27,7 @@ public class Main {
                 case "2":
                     System.out.println("Enter task Description: ");  
                     String desc = scanner.nextLine();
+                    manager.addTask(desc);
                     System.out.println("Task added!");  
                     break;
                 case "3":
