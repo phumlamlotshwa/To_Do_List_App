@@ -1,4 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -56,6 +59,19 @@ public class TaskManager {
             
         }catch (IOException e){
             System.out.println("Error saving tasks: " + e.getMessage());
+        }
+    }
+
+    private void loadTasks(){
+        File file = new File(FILE_NAME);
+        if (!file.exists()) return;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                tasks.add(Task.fromFileString(line)); 
+            } 
+        }catch (IOException e){
+            System.out.println("Error loading tasks: " + e.getMessage());
         }
     }
 
