@@ -33,6 +33,16 @@ public class TaskManager {
             System.out.println("invalid task number.");
         }
     }
+    
+    public void deleteTask(int index){
+        if (index >= 0 && index < tasks.size()) {
+            tasks.remove(index);
+            saveTasks();
+            
+        }else{
+            System.out.println("invalid task number");
+        }
+    }
 
 
 
