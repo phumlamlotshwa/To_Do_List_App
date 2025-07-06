@@ -30,6 +30,15 @@ public class Task {
         return isDone + "," + description;
     }
 
+    public static Task fromFileString(String line){
+        String[] parts = line.split(";", 2);
+        Task task = new Task(parts[1]);
+        if(Boolean.parseBoolean(parts[0])){
+            task.markAsDone();;
+        }
+        return task;
+    }
+
 
 
     
